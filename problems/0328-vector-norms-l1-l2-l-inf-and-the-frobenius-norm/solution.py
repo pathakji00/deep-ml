@@ -14,7 +14,7 @@ def compute_norm(arr: torch.Tensor, norm_type: str) -> float:
     Returns:
         The computed norm as a float
     """
-    # Ensure the input is converted to float if it is an integer tensor
+    
     if not arr.is_floating_point():
         arr = arr.float()
     f_arr = arr.flatten()
@@ -28,7 +28,7 @@ def compute_norm(arr: torch.Tensor, norm_type: str) -> float:
         return torch.linalg.norm(f_arr, ord=float('inf')).item()
         
     elif norm_type == "frobenius":
-        # Keep the dimension check explicitly bound to the Frobenius logic
+        
         if arr.ndim != 2:
             raise ValueError("Frobenius norm is strictly a matrix norm and requires a 2D tensor.")
         return torch.linalg.norm(arr, ord='fro').item()
