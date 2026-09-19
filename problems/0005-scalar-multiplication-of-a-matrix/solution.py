@@ -1,0 +1,15 @@
+import torch
+
+def scalar_multiply(matrix, scalar) -> torch.Tensor:
+    """
+    Multiply each element of a 2D matrix by a scalar using PyTorch.
+    Inputs can be Python lists, NumPy arrays, or torch Tensors.
+    Returns a 2D tensor of the same shape.
+    """
+    # Convert input to tensor
+    m_t = torch.as_tensor(matrix, dtype=torch.float)
+    # Your implementation here
+    m_s = torch.mul(m_t,scalar)#1st method
+    m_s1 = m_t*scalar#2nd method
+    m_t *= scalar #3rd method
+    return m_s
